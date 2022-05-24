@@ -15,7 +15,7 @@ export default async (username: string): Promise<IUserDetails> => {
 			name,
 			twitter_username: twitterUserName,
 			repos_url: reposUrl
-		} 
+		}
 	} = await axios.get(`${gitHubUrlGet}${encodeURIComponent(username)}`,  { headers })
 	
 	const languages = await fetchUserRepos(reposUrl)
