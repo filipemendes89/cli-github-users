@@ -21,6 +21,7 @@
     "dotenv": "^16.0.1",
     "node-pg-migrate": "^6.2.1",
     "pg": "^8.7.3",
+    "pg-monitor": "^1.4.1",
     "pg-promise": "^10.11.1",
     "yargs": "^13.2.4"
   },

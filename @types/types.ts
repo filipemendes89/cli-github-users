@@ -4,7 +4,7 @@ export interface IArgumentsFetch {
 
 export interface IArgumentsRetrieve {
     location?: string
-    languages?: Array<string | number>
+    language?: string
 }
 
 export interface IReposGithub {

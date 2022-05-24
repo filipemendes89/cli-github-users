@@ -8,10 +8,10 @@ export const retrieveUserOptions = () => {
 			description: 'Github username to find',
 			demandOption: false
 		})
-		.option('languages', {
-			alias: 'pl',
-			type: 'array',
-			description: 'Github languages to find split by spaces ex: javascript typescript',
+		.option('language', {
+			alias: 'p',
+			type: 'string',
+			description: 'Github language to be found',
 			demandOption: false
 		})
 }
