@@ -7,7 +7,7 @@ exports.up = pgm => {
 		id: 'id',
 		name: { type: 'varchar(1000)', notNull: true },
 		location: { type: 'varchar(1000)', notNull: true },
-		languages: { type: 'jsonb', notNull: false },
+		additional_info: { type: 'jsonb', notNull: false },
 		createdAt: {
 			type: 'timestamp',
 			notNull: true,
