@@ -6,7 +6,7 @@ const getQueryParams = (argv: IArgumentsRetrieve) => {
 	const locationQuery = argv.location ? 'Lower(location) like \'%$2:raw%\'' : '1=1'
 
 	const params = [
-		argv.language.toLowerCase(),
+		argv.language?.toLowerCase(),
 		argv.location?.toLowerCase()
 	]
 

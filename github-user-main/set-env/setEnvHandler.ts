@@ -1,13 +1,13 @@
 /* eslint-disable quote-props */
-import { exec } from 'child_process'
+import fs from 'fs'
+import os from 'os'
 import { IArgumentsSetEnv } from '../../@types/types'
 
-export const setEnvHandler = async (argv: IArgumentsSetEnv) => {
+const tempPath = os.tmpdir()
+
+export const setEnvHandler = async ({ token, databaseUrl }: IArgumentsSetEnv) => {
 	try {
-		exec('echo $token', { env: { 'token': process.env.token || argv.token } }, (error, stdout, stderr) =>	console.log(stdout, stderr, error))
-
-		exec('echo $DATABASE_URL', { env: { 'DATABASE_URL': process.env.DATABASE_URL || argv.databaseUrl } }, (error, stdout, stderr) =>	console.log(stdout, stderr, error))
-
+		fs.writeFileSync(`${tempPath}/envParameters.json`, JSON.stringify({ token, databaseUrl }))
 		console.log('Environment variables were set')
 	} catch (error) {
 		const errorMessage = error.isAxiosError ? error.response.data : error.message
