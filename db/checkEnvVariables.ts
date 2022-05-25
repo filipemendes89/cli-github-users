@@ -4,30 +4,40 @@ import os from 'os'
 
 const tempPath = os.tmpdir()
 
-export const getEnvParameters = function () {
+export const getEnvParametersFromEnv = () => { 
+	if(process.env.token && process.env.DATABASE_URL) 
+		return { token: process.env.token, databaseUrl: process.env.DATABASE_URL }
+}
 
-	const envParameters = fs.readFileSync(`${tempPath}/envParameters.json`, {
-		encoding: 'utf-8'
-	})
+export const getEnvParametersFromFile = () => {
+	try {
+		const envParameters = fs.readFileSync(`${tempPath}/envParameters.json`, {
+			encoding: 'utf-8'
+		})
 
-	const { token, databaseUrl } = JSON.parse(envParameters)
-
-	return { token, databaseUrl }
+		const { token, databaseUrl } = JSON.parse(envParameters)
+		return { token, databaseUrl }
+	} catch (error) {
+		return { token: undefined, databaseUrl: undefined }
+	}
 }
 
 export const checkEnvVariables = () => {
-	const { token, databaseUrl } = getEnvParameters()
-	const isTokenOk = Boolean(process.env.token || token)
-	const isDataBaseUrlOk = Boolean(process.env.DATABASE_URL || databaseUrl)
+	const { token, databaseUrl } = getEnvParametersFromEnv() || getEnvParametersFromFile()
 
-	if(!isTokenOk) {
-		console.error('GitHub token is not set. Please use command -> gitHubUsers setenv -t yourtoken') 
+	if(!token && !databaseUrl) {
+		console.error('Environment variables are not set, please use command gitHubUsers setenv -t yourtoken -d yourdatabaseurl')
+		return Promise.reject()
+	}
+		
+	if (!token) {
+		console.error('GitHub token is not set. Please use command -> gitHubUsers setenv -t yourtoken')
 		return Promise.reject()
 	}
 
 	process.env.token = token
-	
-	if(!isDataBaseUrlOk) {
+
+	if (!databaseUrl) {
 		console.error('Database URL is not set. Please use command -> gitHubUsers setenv -d yourdatabaseurl')
 		return Promise.reject()
 	}
