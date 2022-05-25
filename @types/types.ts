@@ -7,6 +7,11 @@ export interface IArgumentsRetrieve {
     language?: string
 }
 
+export interface IArgumentsSetEnv {
+    token?: string
+    databaseUrl?: string
+}
+
 export interface IReposGithub {
     languages_url: string
 }

@@ -5,7 +5,7 @@ export default async (userData: IUserDetails) => {
 
 	const insertQuery = 'INSERT INTO users(id, name, login, location, email, twitter_user_name, additional_info) VALUES($1, $2, $3, $4, $5, $6, $7:json)'
 	const onConflict = ' ON CONFLICT (id) DO UPDATE SET location = $4, additional_info = $7:json'
-	await db.none(`${insertQuery} ${onConflict}`,
+	await db().none(`${insertQuery} ${onConflict}`,
 		[
 			userData.id,
 			userData.name,

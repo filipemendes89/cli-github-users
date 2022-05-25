@@ -6,12 +6,13 @@ dotEnv.config()
 
 const pgp = pgPromise({
 	query(event) {
-		console.info([event.query])
-		monitor.query(event) // monitor the event;
+		if (process.env.NODE_ENV === 'development')
+			monitor.query(event) // monitor the event;
 	},
 	error(err, event) {
-		monitor.error(err, event)
-		console.error([err.message, event.query])
+		if (process.env.NODE_ENV === 'development')
+			monitor.error(err, event)
 	}
 })
-export const db = pgp(process.env.DATABASE_URL)
+
+export const db = () => pgp(process.env.DATABASE_URL)

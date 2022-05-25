@@ -17,7 +17,7 @@ const getQueryParams = (argv: IArgumentsRetrieve) => {
 export default async (argv: IArgumentsRetrieve): Promise<IUserDetails[]> => {
 	const { query, params } = getQueryParams(argv)
 
-	const users = await db.map(query, params, (item) => ({
+	const users = await db().map(query, params, (item) => ({
 		id: item.id,
 		name: item.name,
 		location: item.location,
