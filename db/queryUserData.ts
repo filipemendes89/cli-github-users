@@ -6,19 +6,13 @@ const getQueryParams = (argv: IArgumentsRetrieve) => {
 	const locationQuery = argv.location ? 'Lower(location) like \'%$2:raw%\'' : '1=1'
 
 	const params = [
-		argv.language,
+		argv.language.toLowerCase(),
 		argv.location?.toLowerCase()
 	]
 
 	const query = `SELECT * FROM users WHERE ${languageQuery} and ${locationQuery}`
 	return { query, params }
 }		
-
-export const queryById = async (id:number) => {
-	const query = 'SELECT * FROM users WHERE id = $1:integer'
-	const params = [ id ]
-	return await db.one(query, params)
-}
 
 export default async (argv: IArgumentsRetrieve): Promise<IUserDetails[]> => {
 	const { query, params } = getQueryParams(argv)

@@ -13,7 +13,7 @@ export default async (userData: IUserDetails) => {
 			userData.location,
 			userData.email,
 			userData.twitterUserName,
-			{ languages: userData.languages.map(language => ({ name: language })) }
+			{ languages: userData.languages.map(language => ({ name: language.toLowerCase() })) }
 		])
 
 	return userData.id
