@@ -66,6 +66,6 @@ module.exports = {
     "quote-props": ["error", "as-needed"],
     "yoda": "error",
     "prefer-object-spread": "error",
-    "max-len": ["error", { "code": 200, "tabWidth": 4, "ignoreComments": true, "ignoreUrls": true, "ignoreStrings": true,  "ignoreTemplateLiterals": true }]
+    "max-len": ["error", { "code": 100, "tabWidth": 4, "ignoreComments": true, "ignoreUrls": true, "ignoreStrings": true,  "ignoreTemplateLiterals": true }]
  }
 }
