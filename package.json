@@ -11,7 +11,8 @@
     "test": "jest",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
-    "migrate": "node-pg-migrate"
+    "migrate": "node-pg-migrate",
+    "prebuild": "npm run migrate up"
   },
   "bin": {
     "githubUsers": "./dist/github-user-main/index.js"

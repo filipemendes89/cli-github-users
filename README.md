@@ -24,5 +24,5 @@ setenv - Is a function to help user to set their own databaseUrl and gitHub toke
     -t - Token from github that allow much more requests than using the api without it
     -d - URL database from Postgres
 
-
+A few tests were wrote just to show that it can be done. If you want more I could cover most part of this project.
 If you have any questions about code and why, let me know :) 
