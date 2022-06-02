@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "prestart": "npm run build",
+    "prestart": "npm i & npm run build",
     "start": "npm install -g .",
     "test": "jest",
     "lint": "eslint . --ext .ts",

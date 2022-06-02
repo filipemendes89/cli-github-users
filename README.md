@@ -5,8 +5,8 @@ Hi lovely mates hope you're well :)
 
 Let me describe a little bit what I did and how to use it.
 
-First of all, set your project using npm start.
-Secondly, set your .env file using the .envexample (using in the same path only) or use setenv command (described below).
+First of all, set your .env file using the .envexample (using in the same path only) and run npm start.
+Secondly,  use setenv command (described below).
 
 The main function is called gitHubUsers and as soon you call it with --help command it shows a list of commands.
 For each command it's possible to call --help command to see what arguments are available.
