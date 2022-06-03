@@ -10,7 +10,7 @@ import { setEnvHandler } from './set-env/setEnvHandler'
 import { setEnvOptions } from './set-env/setEnvOptions'
 
 yargs
-	.command('fetch', 'fetch and store an user from GitHub', fetchUserOptions, fetchUserHandler, [checkEnvVariables])
-	.command('retrieve', 'retrieve the content of an user from database', retrieveUserOptions, retrieveUserHandler, [checkEnvVariables])
-	.command('setenv', 'set environment variables', setEnvOptions, setEnvHandler)
-	.argv
+  .command('fetch', 'fetch and store an user from GitHub', fetchUserOptions, fetchUserHandler, [checkEnvVariables])
+  .command('retrieve', 'retrieve the content of an user from database', retrieveUserOptions, retrieveUserHandler, [checkEnvVariables])
+  .command('setenv', 'set environment variables', setEnvOptions, setEnvHandler)
+  .argv

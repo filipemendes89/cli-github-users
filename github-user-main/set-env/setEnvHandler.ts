@@ -6,14 +6,14 @@ import { IArgumentsSetEnv } from '../../@types/types'
 const tempPath = os.tmpdir()
 
 export const setEnvHandler = async ({ token, databaseUrl }: IArgumentsSetEnv) => {
-	try {
-		fs.writeFileSync(`${tempPath}/envParameters.json`, JSON.stringify({ token, databaseUrl }))
-		console.log('Environment variables were set')
-	} catch (error) {
-		const errorMessage = error.isAxiosError ? error.response.data : error.message
-		console.error(errorMessage)
+  try {
+    fs.writeFileSync(`${tempPath}/envParameters.json`, JSON.stringify({ token, databaseUrl }))
+    console.log('Environment variables were set')
+  } catch (error) {
+    const errorMessage = error.isAxiosError ? error.response.data : error.message
+    console.error(errorMessage)
 
-	} finally {
-		process.exit()
-	}
+  } finally {
+    process.exit()
+  }
 }

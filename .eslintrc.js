@@ -50,7 +50,7 @@ module.exports = {
     "eqeqeq": "error",
     "func-style": ["error", "expression"],
     "id-length": ["error", { "min": 2 }],
-    "indent": ["error", "tab"],
+    "indent": ["error", 2],
     "camelcase": "error",
     "max-depth": ["error", 3],
     "new-cap": "error",
@@ -66,6 +66,6 @@ module.exports = {
     "quote-props": ["error", "as-needed"],
     "yoda": "error",
     "prefer-object-spread": "error",
-    "max-len": ["error", { "code": 100, "tabWidth": 4, "ignoreComments": true, "ignoreUrls": true, "ignoreStrings": true,  "ignoreTemplateLiterals": true }]
+    "max-len": ["error", { "code": 100, "tabWidth": 2, "ignoreComments": true, "ignoreUrls": true, "ignoreStrings": true,  "ignoreTemplateLiterals": true }]
  }
 }
