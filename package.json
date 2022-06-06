@@ -12,7 +12,7 @@
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
     "migrate": "node-pg-migrate up",
-    "poststart": "npm run migrate",
+    "poststart": "npm run migrate"
   },
   "bin": {
     "githubUsers": "./dist/github-user-main/index.js"
