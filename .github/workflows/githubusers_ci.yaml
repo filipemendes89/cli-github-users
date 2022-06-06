@@ -50,8 +50,8 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Run gitHubUsers fetch script 
-        run: githubUsers fetch -u filipemendes89
+        run: node ./dist/github-user-main/index.js fetch -u filipemendes89
 
       - name: Run gitHubUsers retrieve script 
-        run: githubUsers retrieve
+        run: node ./dist/github-user-main/index.js retrieve
         
