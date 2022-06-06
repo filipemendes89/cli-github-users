@@ -4,8 +4,6 @@ on: push
 jobs:
   # Label of the container job
   Checking-environment-config:
-    env:
-      token: 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
     # Containers must run in Linux based operating systems
     runs-on: ubuntu-latest
     # Docker Hub image that `container-job` executes in
@@ -48,3 +46,4 @@ jobs:
           # A porta-padrão do PostgreSQL
           POSTGRES_PORT: 5432
           DATABASE_URL: postgres://postgres:postgres@postgres:5432
+          token: ${{ secrets.GITHUB_TOKEN }}
