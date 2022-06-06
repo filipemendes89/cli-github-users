@@ -4,6 +4,11 @@ on: push
 jobs:
   # Label of the container job
   Checking-environment-config:
+    env:
+      # Postgres URL used in .env file config
+      DATABASE_URL: postgres://postgres:postgres@postgres:5432
+      #token used in scrips
+      token: ${{ secrets.GITHUB_TOKEN }}
     # Containers must run in Linux based operating systems
     runs-on: ubuntu-latest
     # Docker Hub image that `container-job` executes in
