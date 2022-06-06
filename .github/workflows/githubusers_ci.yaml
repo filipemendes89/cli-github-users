@@ -43,12 +43,6 @@ jobs:
       - name: Run build and migrations
         # Runs a script that creates a tables and alter them.
         run: npm run build
-        # Environment variables used by the `cligithubusers` script.
-        env:
-          # Postgres host name
-          POSTGRES_HOST: postgres
-          # Postgres default port
-          POSTGRES_PORT: 5432
       
       - name: Run gitHubUsers fetch script 
         run: node ./dist/github-user-main/index.js fetch -u filipemendes89 & node ./dist/github-user-main/index.js fetch -u leolegends & node ./dist/github-user-main/index.js fetch -u vidalpaul
