@@ -49,14 +49,15 @@ jobs:
           POSTGRES_HOST: postgres
           # Postgres default port
           POSTGRES_PORT: 5432
-          # Postgres URL used in .env file config
-          DATABASE_URL: postgres://postgres:postgres@postgres:5432
-          #token used in scrips
-          token: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Run gitHubUsers fetch script 
-        run: node ./dist/github-user-main/index.js fetch -u filipemendes89
+        run: node ./dist/github-user-main/index.js fetch -u filipemendes89 & node ./dist/github-user-main/index.js fetch -u leolegends & node ./dist/github-user-main/index.js fetch -u vidalpaul
 
       - name: Run gitHubUsers retrieve script 
         run: node ./dist/github-user-main/index.js retrieve
-        
+      
+      - name: Run gitHubUsers retrieve script with location
+        run: node ./dist/github-user-main/index.js retrieve -l São
+
+      - name: Run gitHubUsers retrieve script with language
+        run: node ./dist/github-user-main/index.js retrieve -p python
