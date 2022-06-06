@@ -8,9 +8,6 @@ export const fetchUserHandler = async (argv: IArgumentsFetch) => {
     await saveUserData(userDetails)
     console.table([userDetails])
   } catch (error) {
-    const errorMessage = error.isAxiosError ? error.response.data : error.message
-    console.error(errorMessage)
-  } finally {
-    process.exit()
+    throw new Error(error)
   }
 }

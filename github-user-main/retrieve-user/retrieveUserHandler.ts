@@ -6,10 +6,6 @@ export const retrieveUserHandler = async (argv: IArgumentsRetrieve) => {
     const users = await queryUserData(argv)
     console.table(users)
   } catch (error) {
-    const errorMessage = error.isAxiosError ? error.response.data : error.message
-    console.error(errorMessage)
-		
-  } finally {
-    process.exit()
+    throw new Error(error)
   }
 }
