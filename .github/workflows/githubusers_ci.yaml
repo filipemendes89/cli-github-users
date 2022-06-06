@@ -40,7 +40,7 @@ jobs:
       - name: Run start and migration
         # Runs a script that creates a PostgreSQL table, populates
         # the table with data, and then retrieves the data.
-        run: npm start
+        run: sudo npm start
         # Environment variables used by the `client.js` script to create a new PostgreSQL table.
         env:
           # O nome do host usado para comunicar-se com o contêiner de serviço do PostgreSQL
