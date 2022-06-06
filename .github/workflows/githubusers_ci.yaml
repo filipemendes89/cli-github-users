@@ -3,7 +3,7 @@ on: push
 
 jobs:
   # Label of the container job
-  Checking environment config:
+  Checking-environment-config:
     env:
       token: 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
     # Containers must run in Linux based operating systems
